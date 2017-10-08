@@ -1,0 +1,332 @@
+<html>
+<title>
+The Convertor
+</title>
+<head>
+    <style>
+        body {
+            margin:auto;
+            background-image: url('EBack.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 50%;
+            height: 65%;
+            padding: 100px 60px 100px 140px;
+        }
+        h1 {
+            color:white; 
+            font-family: sans-serif;
+        }
+        input {
+            width: 35%;
+            height: 7%;
+            font-size: 20px;
+        }
+        select {
+            width: 30%;
+            height: 7%;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+        p {
+            font-size: 50px;
+            color: white;
+        }
+        button {
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    </style>
+</head>
+    <body>
+<h1>From</h1>
+    <input type="number" id="myVal" value=0>
+    <select id="from"> 
+        <option value = "kilos">kilo grams</option>
+        <option value = "grams">grams</option>
+        <option value = "pounds">pounds</option>
+        <option value = "tons">tons</option>
+        <option value = "milliMeters">milli meters</option>
+        <option value = "centiMeters">centi meters</option>
+        <option value = "inches">inches</option>
+        <option value = "meters">meters</option>
+        <option value = "yards">yards</option>
+        <option value = "kiloMeters">kilo meters</option>
+        <option value = "miles">miles</option>
+        <option value = "celsius">celsius</option>
+        <option value = "Fahrenheit">Fahrenheit</option>
+    </select>
+<h1>To</h1>
+    <select id="to"> 
+        <option value = "kilos">kilo grams</option>
+        <option value = "grams">grams</option>
+        <option value = "pounds">pounds</option>
+        <option value = "tons">tons</option>
+        <option value = "milliMeters">milli meters</option>
+        <option value = "centiMeters">centi meters</option>
+        <option value = "inches">inches</option>
+        <option value = "meters">meters</option>
+        <option value = "yards">yards</option>
+        <option value = "kiloMeters">kilo meters</option>
+        <option value = "miles">miles</option>
+        <option value = "celsius">celsius</option>
+        <option value = "Fahrenheit">Fahrenheit</option>
+    </select>
+        <button onclick="myFunction()">Convert</button>
+        <p id="pro"></p>
+        <script type="text/javascript">
+            function myFunction() {
+                var fromData = document.getElementById("from").value;
+                var toData = document.getElementById("to").value;
+                var dataToConvert = parseFloat(document.getElementById("myVal").value);
+                if(fromData == toData)     {
+                    document.getElementById("pro").innerHTML = dataToConvert+" "+toData;
+                }
+                else if(fromData == "kilos") {
+                        if(toData == "grams") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 1000 +" gms";
+                        }
+                        else if(toData == "pounds") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 2.2046 + " lbs";
+                        }
+                        else if(toData == "tons") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 1000 +" tons";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData+" can not convertable to " + toData;
+                        }
+                    }
+                    else if(fromData == "grams") {
+                        if(toData == "kilos") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 1000 + " kgs";
+                        }
+                        else if(toData == "pounds") {
+                            document.getElementById("pro").innerHTML = (dataToConvert * 1000) * 2.2046 + " lbs";
+                        }
+                        else if(toData == "tons") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.000001 +" tons";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        }
+                    }
+                    else if(fromData == "pounds") {
+                        if(toData == "kilos") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 2.2046 + " kgs";
+                        }
+                        else if(toData == "grams") {
+                            document.getElementById("pro").innerHTML = (dataToConvert / 2.2046) * 1000 + " grams";
+                        }
+                        else if(toData == "tons") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.00045359237 +" tons";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        }
+                    }
+                    else if(fromData == "tons") {
+                        if(toData == "kilos") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 1000 + " kgs";
+                        }
+                        else if(toData == "grams") {
+                            document.getElementById("pro").innerHTML = (dataToConvert * 1000) * 1000 + " grams";
+                        }
+                        else if(toData == "pounds") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.00045359237 +" pounds";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        }
+                    }
+                    else if(fromData == "milliMeters") {
+                        if(toData == "centiMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 10 + " cms" ;
+                        }
+                        else if(toData == "inches") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 25.4 + " inches";
+                        }
+                        else if(toData == "meters") {
+                            document.getElementById("pro").innerHTML = (dataToConvert / 10) * 100 +" meters";
+                        }
+                        else if(toData == "yards") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.0010936 +" yards";
+                        }
+                        else if(toData == "kiloMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 1000000 +" kms";
+                        }
+                        else if(toData == "miles") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.00000062137 +" miles";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        } 
+                    }
+                    else if(fromData == "centiMeters") {
+                        if(toData == "milliMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.10000+ " mm" ;
+                        }
+                        else if(toData == "inches") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.39370 + " inches";
+                        }
+                        else if(toData == "meters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 100.00 +" meters";
+                        }
+                        else if(toData == "yards") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.010936+" yards";
+                        }
+                        else if(toData == "kiloMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 100000 +" kms";
+                        }
+                        else if(toData == "miles") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.0000062137 +" miles";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        } 
+                    }
+                    else if(fromData == "inches") {
+                        if(toData == "milliMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.039370+ " mm" ;
+                        }
+                        else if(toData == "centimeter") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.39370 + " cms";
+                        }
+                        else if(toData == "meters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 39.370 +" meters";
+                        }
+                        else if(toData == "yards") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.027778 +" yards";
+                        }
+                        else if(toData == "kiloMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 39370 +" kms";
+                        }
+                        else if(toData == "miles") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.000015783 +" miles";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        } 
+                    }
+                    else if(fromData == "meters") {
+                        if(toData == "milliMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.0010000+ " mm" ;
+                        }
+                        else if(toData == "centimeter") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.010000 + " cms";
+                        }
+                        else if(toData == "inches") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 39.370 +" inches";
+                        }
+                        else if(toData == "yards") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 1.0936 +" yards";
+                        }
+                        else if(toData == "kiloMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 1000 +" kms";
+                        }
+                        else if(toData == "miles") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.00062137 +" miles";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        } 
+                    }
+                    else if(fromData == "yards") {
+                        if(toData == "milliMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.0010936 + " mm" ;
+                        }
+                        else if(toData == "centimeter") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.010936 + " cms";
+                        }
+                        else if(toData == "inches") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 36.000 +" inches";
+                        }
+                        else if(toData == "meters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 1.0936 +" meters";
+                        }
+                        else if(toData == "kiloMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 1093.6 +" kms";
+                        }
+                        else if(toData == "miles") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.00056818 +" miles";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        } 
+                    }
+                    else if(fromData == "kiloMeters") {
+                        if(toData == "milliMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.0000010000 + " mm" ;
+                        }
+                        else if(toData == "centimeter") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.000010000 + " cms";
+                        }
+                        else if(toData == "inches") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 39370 +" inches";
+                        }
+                        else if(toData == "meters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.0010000 +" meters";
+                        }
+                        else if(toData == "yards") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 1093.6 +" yards";
+                        }
+                        else if(toData == "miles") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 0.62137 +" miles";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        } 
+                    }
+                    else if(fromData == "miles") {
+                        if(toData == "milliMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.00000062137 + " mm" ;
+                        }
+                        else if(toData == "centimeter") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.0000062137 + " cms";
+                        }
+                        else if(toData == "inches") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 63360 +" inches";
+                        }
+                        else if(toData == "meters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.00062137 +" mters";
+                        }
+                        else if(toData == "yards") {
+                            document.getElementById("pro").innerHTML = dataToConvert * 1760.0 +" yards";
+                        }
+                        else if(toData == "kiloMeters") {
+                            document.getElementById("pro").innerHTML = dataToConvert / 0.62137+" kms";
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        } 
+                    }
+                    else if(fromData == "celsius") {
+                        if(toData == "Fahrenheit") {
+                            document.getElementById("pro").innerHTML = (dataToConvert * 1.8000) + 32.00 +" F"
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        } 
+                    }
+                    else if(fromData == "Fahrenheit") {
+                        if(toData == "celsius") {
+                            document.getElementById("pro").innerHTML = (dataToConvert - 32) / 1.8000 +" C"
+                        }
+                        else {
+                            document.getElementById("pro").innerHTML = fromData + " can not convertable to " + toData;
+                        } 
+                    }
+            }
+        </script>
+    </body>
+</html>
